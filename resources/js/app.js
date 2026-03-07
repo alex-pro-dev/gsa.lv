@@ -49,3 +49,18 @@ mediaQuery.addEventListener('change', (event) => {
 
     applyTheme(event.matches ? 'dark' : 'light');
 });
+
+const navbarMenu = document.getElementById('navbarMenu');
+const navbarToggler = document.querySelector('[data-bs-target="#navbarMenu"]');
+
+if (navbarMenu && navbarToggler) {
+    navbarMenu.querySelectorAll('a, button').forEach((item) => {
+        item.addEventListener('click', () => {
+            const isMobileNav = window.getComputedStyle(navbarToggler).display !== 'none';
+
+            if (isMobileNav && navbarMenu.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
+}
