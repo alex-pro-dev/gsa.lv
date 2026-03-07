@@ -157,16 +157,16 @@
 </section>
 @endif
 
-<footer class="py-4 border-top border-secondary-subtle bg-black">
+<footer class="site-footer py-4 border-top border-secondary-subtle">
     <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
         <div>
             <strong>GSA Production</strong>
-            <p class="mb-0 text-light-emphasis">© {{ date('Y') }} All rights reserved.</p>
+            <p class="mb-0 footer-muted">© {{ date('Y') }} All rights reserved.</p>
         </div>
-        <div class="small text-light-emphasis">
-            <a href="#hero" class="text-decoration-none text-light-emphasis me-2">Top</a>
-            <a href="#services" class="text-decoration-none text-light-emphasis me-2">Services</a>
-            <a href="#contact" class="text-decoration-none text-light-emphasis">Contact</a>
+        <div class="small footer-muted">
+            <a href="#hero" class="text-decoration-none me-2">Top</a>
+            <a href="#services" class="text-decoration-none me-2">Services</a>
+            <a href="#contact" class="text-decoration-none">Contact</a>
         </div>
     </div>
 </footer>

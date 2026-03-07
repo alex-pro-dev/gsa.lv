@@ -135,9 +135,11 @@ body { font-family: 'Montserrat', sans-serif; background: var(--gsa-bg); color: 
 
 .map-frame iframe { border: 0; }
 
-footer { background: color-mix(in srgb, var(--gsa-surface) 96%, black 4%) !important; }
-footer a { color: var(--gsa-muted) !important; }
-footer a:hover { color: var(--gsa-text) !important; }
+.site-footer { background: color-mix(in srgb, var(--gsa-surface) 96%, black 4%); }
+.site-footer strong { color: var(--gsa-text); }
+.footer-muted { color: var(--gsa-muted) !important; }
+.site-footer a { color: inherit !important; }
+.site-footer a:hover { color: var(--gsa-text) !important; }
 
 [data-animate] { opacity: 0; transform: translateY(18px); transition: all .6s ease; }
 [data-animate].is-visible { opacity: 1; transform: translateY(0); }
