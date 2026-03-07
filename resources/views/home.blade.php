@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm border-bottom border-warning-subtle">
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm border-bottom border-warning-subtle">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#hero">
             <img src="{{ asset('images/gsa-logo.png') }}" alt="GSA Production Logo" class="logo" onerror="this.style.display='none'">
@@ -16,7 +16,13 @@
                     <li class="nav-item"><a class="nav-link" href="#{{ $id }}">{{ $label }}</a></li>
                 @endforeach
             </ul>
-            <a href="#contact" class="btn btn-gold ms-lg-3">Get a Quote</a>
+            <div class="d-flex align-items-center gap-2 ms-lg-3">
+                <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+                    <i class="bi bi-sun-fill theme-icon-light" aria-hidden="true"></i>
+                    <i class="bi bi-moon-stars-fill theme-icon-dark" aria-hidden="true"></i>
+                </button>
+                <a href="#contact" class="btn btn-gold">Get a Quote</a>
+            </div>
         </div>
     </div>
 </nav>
