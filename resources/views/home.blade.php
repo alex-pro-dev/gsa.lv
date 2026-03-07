@@ -36,7 +36,7 @@
                 <p class="lead text-light-emphasis mb-4">{{ $settings->hero_subtitle }}</p>
                 <div class="d-flex gap-3 flex-wrap">
                     <a href="#contact" class="btn btn-gold btn-lg">{{ $settings->hero_primary_cta }}</a>
-                    <a href="#services" class="btn btn-outline-light btn-lg">{{ $settings->hero_secondary_cta }}</a>
+                    <a href="#services" class="btn btn-outline-light btn-lg hero-secondary-btn">{{ $settings->hero_secondary_cta }}</a>
                 </div>
                 <div class="trust-grid mt-5">
                     <div><strong>Since 2006</strong><span>Manufacturing Excellence</span></div>
