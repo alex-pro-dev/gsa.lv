@@ -138,9 +138,11 @@ body { font-family: 'Montserrat', sans-serif; background: var(--gsa-bg); color: 
 }
 
 .product-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
     border: 1px solid var(--gsa-border);
 }
 .product-description p:last-child {
