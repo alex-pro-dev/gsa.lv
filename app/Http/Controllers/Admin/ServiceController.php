@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function index(): View
     {
         return view('admin.services.index', [
-            'services' => Service::query()->orderBy('sort_order')->get(),
+            'services' => Service::query()->withCount('products')->orderBy('sort_order')->get(),
         ]);
     }
 
@@ -35,6 +35,8 @@ class ServiceController extends Controller
 
     public function edit(Service $service): View
     {
+        $service->load('products');
+
         return view('admin.services.edit', compact('service'));
     }
 
