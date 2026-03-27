@@ -31,7 +31,11 @@
                         <h3 class="h4">{{ $product->title }}</h3>
                         <div class="product-description text-light-emphasis">{!! \Illuminate\Support\Str::markdown($product->description) !!}</div>
                         @if($product->specification_path)
-                            <a href="{{ asset('storage/'.$product->specification_path) }}" class="btn btn-gold mt-3" download>
+                            @php
+                                $specificationExtension = pathinfo($product->specification_path, PATHINFO_EXTENSION);
+                                $specificationFilename = \Illuminate\Support\Str::slug($product->title).($specificationExtension ? '.'.$specificationExtension : '');
+                            @endphp
+                            <a href="{{ asset('storage/'.$product->specification_path) }}" class="btn btn-gold mt-3" download="{{ $specificationFilename }}">
                                 <i class="bi bi-download"></i> Download specification
                             </a>
                         @endif
