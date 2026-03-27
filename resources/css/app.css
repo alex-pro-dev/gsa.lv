@@ -119,6 +119,37 @@ body { font-family: 'Montserrat', sans-serif; background: var(--gsa-bg); color: 
 }
 .glass-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--gsa-gold) 46%, var(--gsa-border)); }
 .service-icon { font-size: 1.8rem; color: var(--gsa-gold); }
+.service-icon-lg { font-size: 2.4rem; }
+
+.card-link-reset {
+    text-decoration: none;
+    color: inherit;
+}
+.glass-card-link {
+    position: relative;
+}
+.glass-card-link::after {
+    content: '\F138';
+    font-family: bootstrap-icons;
+    position: absolute;
+    right: 1.2rem;
+    top: 1.2rem;
+    color: var(--gsa-gold);
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid var(--gsa-border);
+}
+.product-description p:last-child {
+    margin-bottom: 0;
+}
+.product-description ul,
+.product-description ol {
+    color: var(--gsa-muted);
+}
 
 .benefit-item { background: var(--gsa-card); border-radius: 1rem; border: 1px solid var(--gsa-border); padding: 1.25rem; }
 .benefit-item i { color: var(--gsa-gold); font-size: 1.4rem; }

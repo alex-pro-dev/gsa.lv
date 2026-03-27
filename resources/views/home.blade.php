@@ -1,31 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm border-bottom border-warning-subtle">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#hero">
-            <img src="{{ asset('images/gsa-logo.png') }}" alt="GSA Production Logo" class="logo" onerror="this.style.display='none'">
-            <span class="brand-text">GSA Production</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                @foreach (['about' => 'About', 'services' => 'Services', 'why-choose' => 'Why Us', 'process' => 'Process', 'contact' => 'Contact'] as $id => $label)
-                    <li class="nav-item"><a class="nav-link" href="#{{ $id }}">{{ $label }}</a></li>
-                @endforeach
-            </ul>
-            <div class="d-flex align-items-center gap-2 ms-lg-3">
-                <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
-                    <i class="bi bi-sun-fill theme-icon-light" aria-hidden="true"></i>
-                    <i class="bi bi-moon-stars-fill theme-icon-dark" aria-hidden="true"></i>
-                </button>
-                <a href="#contact" class="btn btn-gold">Get a Quote</a>
-            </div>
-        </div>
-    </div>
-</nav>
+@include('partials.site-header')
 
 <header id="hero" class="hero-section">
     <div class="container py-5">
@@ -64,11 +40,20 @@
         <div class="row g-4 mt-1">
             @foreach($services as $service)
                 <div class="col-md-6 col-lg-4" data-animate>
-                    <article class="glass-card h-100">
+                    @if($service->active_products_count > 0)
+                        <a href="{{ route('services.show', $service) }}" class="card-link-reset">
+                    @endif
+                    <article class="glass-card h-100 {{ $service->active_products_count > 0 ? 'glass-card-link' : '' }}">
                         <i class="bi {{ $service->icon }} service-icon"></i>
                         <h3 class="h5 mt-3">{{ $service->title }}</h3>
                         <p class="text-light-emphasis">{{ $service->description }}</p>
+                        @if($service->active_products_count > 0)
+                            <span class="btn btn-sm btn-outline-light mt-2">View related products</span>
+                        @endif
                     </article>
+                    @if($service->active_products_count > 0)
+                        </a>
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -157,17 +142,5 @@
 </section>
 @endif
 
-<footer class="site-footer py-4 border-top border-secondary-subtle">
-    <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
-        <div>
-            <strong>GSA Production</strong>
-            <p class="mb-0 footer-muted">© {{ date('Y') }} All rights reserved.</p>
-        </div>
-        <div class="small footer-muted">
-            <a href="#hero" class="text-decoration-none me-2">Top</a>
-            <a href="#services" class="text-decoration-none me-2">Services</a>
-            <a href="#contact" class="text-decoration-none">Contact</a>
-        </div>
-    </div>
-</footer>
+@include('partials.site-footer')
 @endsection

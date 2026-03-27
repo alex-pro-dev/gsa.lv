@@ -13,7 +13,13 @@ class HomeController extends Controller
     {
         return view('home', [
             'settings' => HomepageSetting::query()->firstOrFail(),
-            'services' => Service::query()->where('is_active', true)->orderBy('sort_order')->get(),
+            'services' => Service::query()
+                ->where('is_active', true)
+                ->withCount([
+                    'products as active_products_count' => fn ($query) => $query->where('is_active', true),
+                ])
+                ->orderBy('sort_order')
+                ->get(),
             'contact' => ContactDetail::query()->firstOrFail(),
             'benefits' => [
                 ['icon' => 'bi-clock-history', 'title' => 'Since 2006', 'text' => 'Nearly two decades of proven manufacturing expertise.'],
