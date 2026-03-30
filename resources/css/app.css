@@ -136,6 +136,20 @@ body { font-family: 'Montserrat', sans-serif; background: var(--gsa-bg); color: 
     top: 1.2rem;
     color: var(--gsa-gold);
 }
+.service-card-btn {
+    border-width: 1px;
+}
+:root[data-theme='light'] .service-card-btn {
+    color: var(--gsa-text);
+    border-color: color-mix(in srgb, var(--gsa-text) 45%, transparent);
+    background: color-mix(in srgb, var(--gsa-surface) 84%, var(--gsa-surface-alt));
+}
+:root[data-theme='light'] .service-card-btn:hover,
+:root[data-theme='light'] .service-card-btn:focus-visible {
+    color: #fff;
+    border-color: var(--gsa-gold-strong);
+    background: var(--gsa-gold-strong);
+}
 
 .product-image {
     display: block;

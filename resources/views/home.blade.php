@@ -48,7 +48,7 @@
                         <h3 class="h5 mt-3">{{ $service->title }}</h3>
                         <p class="text-light-emphasis">{{ $service->description }}</p>
                         @if($service->active_products_count > 0)
-                            <span class="btn btn-sm btn-outline-light mt-2">View related products</span>
+                            <span class="btn btn-sm btn-outline-light service-card-btn mt-2">View related products</span>
                         @endif
                     </article>
                     @if($service->active_products_count > 0)
